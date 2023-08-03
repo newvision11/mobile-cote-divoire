@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Outfitters Sénégal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <script src="https://kit.fontawesome.com/6b5a69a0c3.js" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEP6nM8t44xj4AlHkJOV0Y0B0dMsZOMg8"></script>
+    <link rel="stylesheet" type="text/css" href="path/to/your/stylesheet.css">
+    <script src="path/to/your/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.scroll-top').fadeIn();
+                } else {
+                    $('.scroll-top').fadeOut();
+                }
+            });
+            $('.scroll-top').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 800);
+                return false;
+            });
+        });
+        $('.scroll-top').click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 800);
+            return false;
+        });
+    </script>
+
+</head>
+
+<body>
+
+    <!-- <script>
+
+        jQuery(function ($) {
+            // Asynchronously Load the map API 
+            var script = document.createElement('script');
+            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBZib4Lvp0g1L8eskVBFJ0SEbnENB6cJ-g&callback=initialize";
+            document.body.appendChild(script);
+        });
+
+        function initialize() {
+            var map;
+            var bounds = new google.maps.LatLngBounds();
+            var mapOptions = {
+                mapTypeId: 'roadmap'
+            };
+
+            // Display a map on the page
+            map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+            map.setTilt(45);
+
+            // Multiple Markers
+            var markers = [
+                ['Auchan Mermoze', 14.693801727747177, -17.47445079815249],
+                ['Sea Plazza', 14.686194293713555, -17.453816919511905],
+                ['Sea Plazza', 14.713033764994819, -17.476966732470295],
+                ['Sea Plazza', 14.74156217338199, -17.511615868755786],
+                ['Sea Plazza', 14.671248703184332, -17.06743333068287],
+            ];
+
+            // Display multiple markers on a map
+            var infoWindow = new google.maps.InfoWindow({ maxWidth: 280 }),
+                marker, i;
+
+            // Loop through our array of markers & place each one on the map  
+            for (i = 0; i < markers.length; i++) {
+                var image = 'img/map-logo-02-01.png';
+                var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+                bounds.extend(position);
+                marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    icon: image,
+                });
+
+                // Allow each marker to have an info window    
+                google.maps.event.addListener(marker, 'mouseover', (function (marker, i) {
+                    return function () {
+                        infoWindow.setContent(infoWindowContent[i][0]);
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+            }
+
+            // Set the default zoom to a specific location (Auchan Mermoze)
+            var defaultLocation = new google.maps.LatLng(markers[0][1], markers[0][2]);
+            map.setCenter(defaultLocation);
+            map.setZoom(12);
+
+            // Automatically center the map fitting all markers on the screen
+        }
+    </script>
+ -->
+    <header>
+        <!--Navbar start-->
+        <div class="navbar">
+            <!-- Navbar logo -->
+            <div class="nav-header">
+                <div class="nav-logo">
+                    <a href="Index.html">
+                        <img src="img/logo-white-08.png" width="100px" alt="logo">
+                    </a>
+                </div>
+            </div>
+            <!-- responsive navbar toggle button -->
+            <input type="checkbox" id="nav-check">
+            <div class="nav-btn">
+                <label class="dd" for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+            <!-- Navbar items -->
+            <div class="nav-links">
+                <!-- Dropdown menu -->
+
+                <div class="dropdown">
+                    <a href="Index.html">Accueil</a>
+                    <a href="original-matte.html">Clear-Coat</a>
+                    <a href="fusion.html">Fusion</a>
+                    <a href="style-skins.html">Style Skins</a>
+                    <a href="revendeur.html">
+                        <button class="loginBtn">Devenir Revendeur</button>
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!--Navbar end-->
+    <script>
+
+        function kk() {
+            var a = document.querySelector('#nav-check');
+
+            if (a.checked) {
+                document.querySelector('.dd').click();
+            }
+        }
+
+    </script>
+
+    <!-- <section onclick="kk()" class="landing-page">
+
+        <div class="landing-text">
+            <h1>Mobile Outfitters Sénégal</h1>
+            <h2>Protection <br>360° degrés </h2>
+            <h3>Service innovant de classe mondiale</h3>
+            <a href="tel:+221338250083"><button class="button2">Contactez-nous</button></a>
+            <a href="revendeur.html"><button class="button3">Devenir revendeur</button></a>
+        </div>
+
+
+    </section> -->
+    <section onclick="kk()" class="video-main">
+        <div  class="landing-text">
+            <h1>Mobile Outfitters Sénégal</h1>
+            <h2>Protection<br>360°  degrés</h2>
+          
+        </div>
+        <div class="gif-main">
+            <img src="img/gif.gif" alt="">
+        </div>
+    </section>
+
+
+
+    <!--landing page end-->
+
+    <!--About us start-->
+
+    <section style=" width: 100%;" onclick="kk()" id="concept" class="about-us">
+
+        <div class="about-text">
+            <h3 style="padding-bottom: 10px;">Qui sommes nous ?</h3>
+            <p > Avec plus de 800 boutiques à travers 55 pays, Mobile Outfitters propose des
+                produits et services uniques au monde pour vos appareils électroniques. 
+                Une tablette, un smartphone, ordinateur portable ou console ? Pas de problème, nous vous offrons un
+                service personnalisé où chaque produit est garanti à vie.
+             
+                De plus, grâce à la machine RapidCut,
+                votre
+                découpe personnalisée est prête en quelques secondes sur place.
+            </p>
+            <h1 style="text-align: center; padding: 25px 0;">Le Concept</h1>
+            <p>Il a fallu 3 ans de recherche he et de développement pour créer la meilleure protection d'écran jamais
+                produite.
+
+                Le résultat est une feuille de Fusion Clear-Coat spéciale basée sur la technologie brevetée TriACTIVE ™
+                pour la protection contre les chocs, combinant 3 couches de polyuréthane qui rendent l'écran de
+                l'appareil jusqu'à 3 fois plus fort et résistant aux rayures et aux dommages.
+
+            </p>
+        </div>
+    </section>
+    <!--About us end-->
+
+    <section onclick="kk()" class="products-section-mobile">
+        <div class="mobile-products-content">
+            <div class="part-1-mobile">
+                <div class="text-area-mobile">
+                    <h3>Clear-Coat</h3>
+                    <h1>Protection Anti-Rayures</h1>
+                    <a href="original-matte.html"><button type="button">En savoir plus</button></a>
+                </div>
+                <div class="image-mobile">
+                    <img src="img/apple-watch-ultra.png" alt="">
+                </div>
+            </div>
+
+            <div class="part-2-mobile">
+                <div class="text-area-mobile-2">
+                    <h3>Fusion</h3>
+                    <h1>Protection Anti-Choc</h1>
+                    <a href="fusion.html"><button type="button">En savoir plus</button></a>
+                </div>
+                <div class="image-mobile-2">
+                    <img src="img/mobile s23-05.png" alt="">
+                </div>
+            </div>
+
+            <div class="part-3-mobile">
+                <div class="text-area-mobile-3">
+                    <h3>Style Skins</h3>
+                    <h1>Personnalisation</h1>
+                    <a href="style-skins.html"><button type="button">En savoir plus</button></a>
+                </div>
+                <div class="image-mobile-3">
+                    <img src="img/style-skins-mobile-1.png" alt="">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!--products icons start-->
+
+    <div onclick="kk()" class="under-about-us">
+        <h3>Bénéficiez d’une installation par<br> un professionnel ainsi qu’une protection garantie à vie. </h3>
+    </div>
+    <!--products icons end-->
+
+    <section onclick="kk()" class="logo-icons">
+        <a href="original-matte.html"> <img src="img/clearcoatlogo.png" alt=""></a>
+        <div class="fusion-logo"><a href="fusion.html"> <img src="img/Fusion.png" alt=""></a></div>
+        <a href="style-skins.html"> <img src="img/Style-Skins1.png" alt=""></a>
+    </section>
+
+
+    <!--Products start-->
+    <!--Products start-->
+
+    <!--Products section-->
+
+    <section onclick="kk()" class="products-section">
+        <div id="clear-coat" class="container-1">
+            <div class="products-text">
+                <h3>Clear-Coat</h3>
+                <h1>Protection <br> Anti-Rayures</h1>
+                <div class="view-more-1">
+                    <a href="original-matte.html">En savoir plus</a>
+                </div>
+            </div>
+            <div class="products-image">
+                <img class="products-img" src="img/apple-watch-ultra.png" alt="">
+            </div>
+        </div>
+        <!--1-->
+        <div id="fusion" class="container-2">
+            <div class="products-image-2">
+                <img class="products-img-2" src="img//mobile s23-05.png" alt="">
+            </div>
+            <div class="products-text-2">
+                <h3>Fusion</h3>
+                <h1>Protection<br>Anti-Choc</h1>
+                <div class="view-more-2">
+                    <a href="fusion.html">En savoir plus</a>
+                </div>
+            </div>
+        </div>
+        <!--2-->
+        <div id="style-skins" class="container-3">
+            <div class="products-text-3">
+                <h3>Style Skins</h3>
+                <h1>Personnalisation</h1>
+                <div class="view-more-3">
+                    <a href="style-skins.html">En savoir plus</a>
+                </div>
+            </div>
+            <div class="products-image-3">
+                <img class="products-img-3" src="img/style-skins-mobile-1.png" alt="">
+            </div>
+        </div>
+        <!--3-->
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <section onclick="kk()" class="locations-section">
+        <div id="locations" class="locations-text">
+            <h4>Nous trouver</h4>
+            <div class="blue-line-2"></div>
+            <h2>Découvrez nos emplacements au Sénégal et trouvez le plus proche de chez vous..</h2>
+        </div>
+    </section>
+
+    <!-- <div style="display: flex; justify-content: center; margin-top: 50px;" id="map_wrapper">
+        <div style="width: 800px; height: 500px;" id="map_canvas" class="mapping"></div>
+    </div> -->
+    <div  class="map2" id="map"></div>
+
+
+
+
+
+
+
+
+
+    <div onclick="kk()" class="wrapper">
+
+        <div class="box">
+            <a style="text-decoration: none; color: black;" href="tel:221338250083">
+                <p style="line-height: 2; text-align: center;">Sea Plaza, 1er niveau <br>
+                    <i class="fas fa-phone"></i>
+                    338250083
+                </p>
+                <div class="content-gg">
+                </div>
+            </a>
+
+        </div>
+
+        <div class="box">
+            <a style="text-decoration: none; color: black;" href="tel:221338255246">
+                <p style="line-height: 2; text-align: center;">Hyper Auchan Mermoz <br>
+                    <i class="fas fa-phone"></i>
+                    338255246
+                </p>
+                <div class="content-gg">
+                </div>
+            </a>
+
+        </div>
+
+        <div class="box">
+            <a style="text-decoration: none; color: black;" href="tel:221338882657">
+                <p style="line-height: 2; text-align: center;">Fnac Galerie Sahm <br>
+                    <i class="fas fa-phone"></i>
+                    338882657
+                </p>
+                <div class="content-gg">
+                </div>
+            </a>
+
+        </div>
+
+        <div class="box">
+            <a style="text-decoration: none; color: black;" href="tel:221339867449">
+                <p style="line-height: 2; text-align: center;"> Fnac Almadies <br>
+                    <i class="fas fa-phone"></i>
+                    339867449
+                </p>
+                <div class="content-gg">
+                </div>
+            </a>
+
+        </div>
+
+        <div id="last-box" class="box">
+            <a style="text-decoration: none; color: black;" href="tel:221338380494">
+                <p style="line-height: 2; text-align: center;">Aeroport AIBD  <br>
+                    <i class="fas fa-phone"></i>
+                    338380494
+                </p>
+                <div class="content-gg">
+                </div>
+            </a>
+        </div>
+        <div style=" box-shadow: 5px 10px #ffffff00;" class="box">
+
+        </div>
+
+        
+        <div class="offre">
+            <h1>NOS OFFRES SPÉCIALES</h1>
+        </div>
+
+
+
+        <section style="margin-bottom: 100px;" onclick="kk()" class="image-gallery">
+
+            <div class="image-container">
+                <img src="img/summer11.jpg" alt="image1">
+            </div>
+            <div class="image-container">
+                <img src="img/summer22.jpg" alt="image1">
+            </div>
+            <div class="image-container">
+                <img src="img/destockage.jpg" alt="image1">
+            </div>
+        </section>
+
+    </div>
+
+    <div class="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+
+
+    <!-- <div class="preloader">
+        <div class="loader"></div>
+    </div> -->
+
+    <!-- <script>
+        window.addEventListener("load", function () {
+            const preloader = document.querySelector(".preloader");
+            preloader.style.display = "none";
+        });
+
+    </script> -->
+    <!-- footer starts -->
+
+    <section onclick="kk()" style="margin-bottom: 50px; " class="follow-us">
+        <button>Suivez nous sur Instagram <a href="https://www.instagram.com/mobileoutfitters_senegal/"
+                target="_blank"></a></button>
+    </section>
+
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!--======================footer start======================-->
+
+
+    <div class="last-icons">
+        <img src="img/icons-01.png" alt="">
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        var map = L.map('map').setView([14.71499522013416, -17.476921361663383], 11.5);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+        var customIcon = L.icon({
+            iconUrl: '/img/map-logo-02-01.png',
+            iconSize: [40, 40], // Size of the icon
+
+        });
+        
+        var marker = L.marker([14.693801727747177, -17.47445079815249], { icon: customIcon }).addTo(map);
+        var marker = L.marker([14.686194293713555, -17.453816919511905], { icon: customIcon }).addTo(map);
+        var marker = L.marker([14.713033764994819, -17.476966732470295], { icon: customIcon }).addTo(map);
+        var marker = L.marker([14.74156217338199, -17.511615868755786], { icon: customIcon }).addTo(map);
+        var marker = L.marker([14.671248703184332, -17.06743333068287], { icon: customIcon }).addTo(map);
+
+    </script>
+
+
+
+
+
+
+
+
+
+    <footer onclick="kk()">
+        <div class="content">
+            <div class="top">
+                <div class="logo-details">
+                    <span class="logo_name"><img src="img/logo.png" alt=""></span>
+                </div>
+                <div class="media-icons">
+                    <a href="https://www.facebook.com/mobileoutfitterssenegal/"><i class=" fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/mobileoutfitters_senegal/"><i style="font-weight: bolder;" class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@mobileoutfitters_senegal"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.linkedin.com/company/mobileoutfitters"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a  href="wa.link/nkd1kj"><i style="font-weight: bolder;" class="fab fa-whatsapp"></i></a>
+            </div>
+            </div>
+            <div class="link-boxes">
+                <ul class="box-gg">
+                    <li class="link_name">
+                        <div class="button-footer">
+                            <button style=" line-height: 1.5;
+                            font-weight: normal;
+                            text-align: center;
+                            padding: 10px 10px;
+                            margin: 5px auto 0 auto;
+                            border: none;
+                            text-decoration: none;
+                            line-height: 1.5;
+                            border-radius: 4px;
+                            box-sizing: border-box;
+                            background: #408bd1;
+                            transition: all .1s ease-in;
+                            cursor: pointer;">
+                                <a style="color: #ffffff; opacity: 100%; "
+                                    href="tel: +221 77 391 95 01">CONTACTEZ-NOUS</a>
+                            </button>
+
+                        </div>
+                    </li>
+                    <li><a>Dakar, Sénégal</a></li>
+                    <li><a href="tell:+221338250083">+221 33 825 00 83</a></li>
+                </ul>
+                <ul class="box-gg">
+                    <li class="link_name">PRODUCTS</li>
+                    <li><a href="original-matte.html">Clear-Coat</a></li>
+                    <li><a href="fusion.html">Fusion</a></li>
+                    <li><a href="style-skins.html">Style Skins</a></li>
+                </ul>
+                <ul class="box-gg">
+                    <li class="link_name">SERVICES</li>
+                    <li> <a href="https://www.moutfitters.com/support/get-a-replacement/">Lifetime Replacements</a></li>
+                    <li> <a href="https://www.moutfitters.com/locations/">Where to buy</a></li>
+                    <li> <a href="https://www.moutfitters.com/support/request-a-product/" target="_blank">Product
+                            Registration</a></li>
+                    <li><a href="https://www.moutfitters.com/support/request-a-product/" target="_blank">Request A
+                            Product</a></li>
+                    <li><a href="https://www.moutfitters.com/support/faqs/">FAQs</a></li>
+                </ul>
+                <ul class="box-gg">
+                    <li class="link_name">À PROPOS NOUS</li>
+                    <li><a href="https://www.moutfitters.com/careers-and-culture/">Our Culture</a></li>
+                    <li><a href="https://www.moutfitters.com/about-us/our-history/">Our History</a></li>
+                    <li><a href="revendeur.html">Become A Partner</a></li>
+                    <li><a href="https://www.moutfitters.com/blog/">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2023 Design by <a href="https://www.newvisions.agency"> New
+                        Visions</a>All rights reserved</span>
+                <span class="policy_terms">
+                    <a href="https://www.iubenda.com/privacy-policy/98980996">Terms of Use / Privacy Policy </a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
